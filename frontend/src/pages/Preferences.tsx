@@ -14,10 +14,10 @@ const Preferences = () => {
   const isReady = identity && preference && mood;
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
-      <div style={{ background: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--card)', width: '100%', maxWidth: '500px', animation: 'riseUp 0.8s ease forwards' }}>
-        <h2 style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>Who are you right now?</h2>
-        <p style={{ color: 'var(--muted)', marginBottom: '2rem', fontSize: '0.95rem' }}>This information is used strictly for finding a matching peer. It is never saved or linked to you.</p>
+    <div style={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 'clamp(1rem, 5vw, 2rem)' }}>
+      <div style={{ background: 'var(--surface)', padding: 'clamp(1.5rem, 5vw, 2.5rem)', borderRadius: '12px', border: '1px solid var(--card)', width: '100%', maxWidth: '500px', animation: 'riseUp 0.8s ease forwards' }}>
+        <h2 style={{ fontSize: 'clamp(1.4rem, 5vw, 1.8rem)', marginBottom: '0.5rem' }}>Who are you right now?</h2>
+        <p style={{ color: 'var(--muted)', marginBottom: '2rem', fontSize: 'clamp(0.85rem, 3vw, 0.95rem)' }}>This information is used strictly for finding a matching peer. It is never saved or linked to you.</p>
 
         <div style={{ marginBottom: '2rem' }}>
           <h4 style={{ marginBottom: '1rem', color: 'var(--text)' }}>I am</h4>

@@ -1,36 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Matching = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [timeLeft, setTimeLeft] = useState(30);
 
   useEffect(() => {
     // 30 seconds countdown
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          navigate('/chat', { state: { ...location.state, aiFallback: true } });
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
+    const timer = setTimeout(() => {
+      navigate('/chat', { state: { ...location.state, aiFallback: true } });
+    }, 30000);
 
-    return () => clearInterval(timer);
+    return () => clearTimeout(timer);
   }, [navigate, location.state]);
 
-  const handleSkipToAI = () => {
-    navigate('/chat', { state: { ...location.state, aiFallback: true } });
-  };
-
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
+    <div style={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 'clamp(1rem, 5vw, 2rem)' }}>
       {/* Ripple Animation Context */}
-      <div style={{ position: 'relative', width: '150px', height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '3rem' }}>
+      <div style={{ position: 'relative', width: 'clamp(100px, 30vw, 150px)', height: 'clamp(100px, 30vw, 150px)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '3rem' }}>
         {[1, 2, 3].map((i) => (
           <motion.div
             key={i}
@@ -52,11 +40,11 @@ const Matching = () => {
             }}
           />
         ))}
-        <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--violet)', zIndex: 1 }} className="glow-text"></div>
+        <div style={{ width: 'clamp(30px, 8vw, 40px)', height: 'clamp(30px, 8vw, 40px)', borderRadius: '50%', background: 'var(--violet)', zIndex: 1 }} className="glow-text"></div>
       </div>
 
-      <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Searching for a match...</h2>
-      <p style={{ color: 'var(--muted)', marginBottom: '3rem' }}>Looking for someone who feels "{location.state?.mood || 'Just venting'}"</p>
+      <h2 style={{ fontSize: 'clamp(1.2rem, 5vw, 1.5rem)', marginBottom: '1rem', textAlign: 'center' }}>Searching for a match...</h2>
+      <p style={{ color: 'var(--muted)', marginBottom: '3rem', textAlign: 'center', fontSize: 'clamp(0.9rem, 3.5vw, 1rem)' }}>Looking for someone who feels "{location.state?.mood || 'Just venting'}"</p>
 
       {/* Progress Bar */}
       <div style={{ width: '100%', maxWidth: '300px', height: '4px', background: 'var(--card)', borderRadius: '2px', overflow: 'hidden', marginBottom: '2rem' }}>
@@ -67,24 +55,6 @@ const Matching = () => {
           style={{ height: '100%', background: 'var(--violet)' }}
         />
       </div>
-
-      <p style={{ color: 'var(--muted)', fontSize: '0.9rem', marginBottom: '2rem' }}>Connecting to AI companion in {timeLeft}s</p>
-
-      <button 
-        onClick={handleSkipToAI}
-        style={{
-          padding: '0.8rem 1.5rem',
-          borderRadius: '20px',
-          border: '1px solid var(--card)',
-          color: 'var(--text)',
-          fontSize: '0.9rem',
-          transition: 'all 0.2s ease',
-        }}
-        onMouseOver={e => e.currentTarget.style.border = '1px solid var(--violet)'}
-        onMouseOut={e => e.currentTarget.style.border = '1px solid var(--card)'}
-      >
-        Skip and talk to AI now
-      </button>
     </div>
   );
 };

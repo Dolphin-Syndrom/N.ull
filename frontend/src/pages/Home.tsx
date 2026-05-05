@@ -15,18 +15,18 @@ const Home = () => {
   const isEnabled = ageChecked && guidelinesChecked;
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
-      <header style={{ textAlign: 'center', marginBottom: '4rem', animation: 'riseUp 0.8s ease forwards' }}>
-        <h1 className="glow-text" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1rem', fontStyle: 'italic', letterSpacing: '0.05em' }}>
+    <div style={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 'clamp(1rem, 5vw, 2rem)' }}>
+      <header style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 8vw, 4rem)', animation: 'riseUp 0.8s ease forwards' }}>
+        <h1 className="glow-text" style={{ fontSize: 'clamp(2.5rem, 8vw, 4rem)', marginBottom: '1rem', fontStyle: 'italic', letterSpacing: '0.05em' }}>
           N.ull
         </h1>
-        <p style={{ color: 'var(--muted)', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
+        <p style={{ color: 'var(--muted)', fontSize: 'clamp(1rem, 3vw, 1.2rem)', maxWidth: '600px', margin: '0 auto' }}>
           Someone is listening. No names. No profiles. No history. Just two people, one conversation.
         </p>
       </header>
 
-      <div style={{ background: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--card)', width: '100%', maxWidth: '420px', animation: 'riseUp 1s ease forwards', opacity: 0 }}>
-        <h3 style={{ marginBottom: '1.5rem', fontSize: '1.4rem', borderBottom: '1px solid var(--card)', paddingBottom: '1rem' }}>Enter the Void</h3>
+      <div style={{ background: 'var(--surface)', padding: 'clamp(1.5rem, 5vw, 2.5rem)', borderRadius: '12px', border: '1px solid var(--card)', width: '100%', maxWidth: '420px', animation: 'riseUp 1s ease forwards', opacity: 0 }}>
+        <h3 style={{ marginBottom: '1.5rem', fontSize: 'clamp(1.2rem, 4vw, 1.4rem)', borderBottom: '1px solid var(--card)', paddingBottom: '1rem' }}>Enter the Void</h3>
         
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', marginBottom: '1rem' }}>
           <input 
